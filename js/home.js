@@ -1,4 +1,5 @@
 const BACKEND_URL = "https://videocalling-backend-c85u.onrender.com";
+const FRONTEND_URL = "https://video-calling-frontend-kappa.vercel.app";
 
 const nameInput = document.getElementById("nameInput");
 const meetingInput = document.getElementById("meetingInput");
@@ -25,18 +26,18 @@ joinCreateBtn.onclick = async () => {
       body: JSON.stringify({ name, meetingId, password })
     });
 
-    // if server returns non-json (rare), avoid crash
-    const text = await res.text();
-    const data = text ? JSON.parse(text) : {};
+    const data = await res.json();
 
     if (!res.ok) {
       statusEl.textContent = data.error || "Error";
       return;
     }
 
-    location.href = `/meeting.html?id=${meetingId}&name=${encodeURIComponent(name)}`;
+    // redirect to frontend meeting page
+    location.href =
+      `${FRONTEND_URL}/meeting.html?id=${meetingId}&name=${encodeURIComponent(name)}`;
   } catch (err) {
     console.error(err);
-    statusEl.textContent = "Backend not reachable";
+    statusEl.textContent = "Backend not reachable.";
   }
 };

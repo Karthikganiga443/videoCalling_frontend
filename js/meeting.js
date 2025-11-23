@@ -1,8 +1,7 @@
 const BACKEND_URL = "https://videocalling-backend-c85u.onrender.com";
 
-// IMPORTANT: connect socket to backend domain
 const socket = io(BACKEND_URL, {
-  transports: ["websocket"], // helps Render be stable
+  transports: ["websocket"]
 });
 
 const params = new URLSearchParams(location.search);
@@ -20,7 +19,7 @@ const videoBtn = document.getElementById("videoBtn");
 const leaveBtn = document.getElementById("leaveBtn");
 
 let localStream;
-let peers = {}; // socketId -> RTCPeerConnection
+let peers = {}; 
 let isMuted = false;
 let isVideoOff = false;
 
@@ -133,7 +132,7 @@ leaveBtn.onclick = () => {
   socket.disconnect();
   Object.values(peers).forEach(p => p.close());
   peers = {};
-  location.href = "/";
+  location.href = "https://video-calling-frontend-kappa.vercel.app";
 };
 
 (async () => {
