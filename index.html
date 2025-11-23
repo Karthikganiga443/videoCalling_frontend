@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Video Call Mesh</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Mesh Video Calling</h1>
+
+    <div class="join-card">
+      <input id="nameInput" placeholder="Your name" />
+      <input id="meetingInput" placeholder="Meeting ID" />
+      <input id="passwordInput" type="password" placeholder="Meeting Password" />
+      <button id="joinCreateBtn">Join / Create</button>
+    </div>
+
+    <p id="status"></p>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

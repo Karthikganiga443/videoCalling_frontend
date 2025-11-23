@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Meeting</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="meeting-container">
+    <h2 id="meetingTitle"></h2>
+    <p id="userLabel"></p>
+
+    <div class="videos" id="videosGrid">
+      <video id="localVideo" autoplay playsinline muted></video>
+    </div>
+
+    <div class="controls">
+      <button id="muteBtn">Mute</button>
+      <button id="videoBtn">Video Off</button>
+      <button id="leaveBtn" class="danger">Leave</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/meeting.js"></script>
+</body>
+</html>
